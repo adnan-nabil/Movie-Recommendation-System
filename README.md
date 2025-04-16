@@ -1,4 +1,4 @@
-# This is my content based movie recommentation system
+# This is a content based movie recommentation system
 
 In this project I used TMDB-5000 dataset. 
 
