@@ -2,19 +2,30 @@ import streamlit as st
 import pickle
 import pandas as pd
 import requests
-import numpy as np
-
+import os
+import gdown
 
 
 # streamlit run app.py
 
 
 movies_dict = pickle.load(open('movie_dict.pkl', 'rb'))
-similarity = pickle.load(open('similarity.pkl', 'rb'))
-
 movies_df = pd.DataFrame(movies_dict)
+#similarity = pickle.load(open('similarity.pkl', 'rb'))
 
 
+# similarity.pkl file is  stored in Google Drive
+# and we will download it using gdown library
+file_id = '1QV9QgnaH_MXtOxHHWr61fi5Qulv2usEZ'
+file_name = 'similarity.pkl'
+
+if not os.path.exists(file_name):
+    url = f'https://drive.google.com/uc?id={file_id}'
+    gdown.download(url, file_name, quiet=False)
+
+# Load the pickle file
+with open(file_name, 'rb') as f:
+    similarity = pickle.load(f)
 
 
 def poster(movie_id):
