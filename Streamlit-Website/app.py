@@ -9,7 +9,7 @@ import gdown
 # streamlit run app.py
 
 
-movies_dict = pickle.load(open('movie_dict.pkl', 'rb'))
+movies_dict = pickle.load(open('Streamlit-Website/movie_dict.pkl', 'rb'))
 movies_df = pd.DataFrame(movies_dict)
 #similarity = pickle.load(open('similarity.pkl', 'rb'))
 
